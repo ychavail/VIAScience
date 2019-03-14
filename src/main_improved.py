@@ -2,7 +2,7 @@
 # Description:
 # Code name: ./src/main.py
 # Date of creation: 2019/03/12
-# Date of last modification: 2019/03/12
+# Date of last modification: 2019/03/14
 # Contact information: Yann Chavaillaz, yann.chavaillaz@gmail.com
 ##################################################################
 
@@ -13,13 +13,15 @@ import src.utils as fct
 path_data   = './data/'     # where to find the dataset
 path_fig    = './figures/'  # where to store the figures
 
-# Opening of the dataset
-file        = open(path_data+'data.csv', 'r')
+# Definition and reading of the dataset
+file        = (path_data+'data.csv') # where data is stored
+data        = fct.read_data(file)
 
-# Reading or sorting the dataset by gender
-list_data                   = fct.read_data(file)
-age_F,size_F,age_M,size_M   = fct.sort_data(list_data)
+# Definition of parameters
+resolution  = 300 # resolution of the figure in dpi
+step1       = 1.  # increment of histogram for the 1st variable
+step2       = 0.1 # increment of histogram for the 2nd variable
 
-# Plotting histograms of age and size distribution among both genders
-fct.save_doublehistogram(age_F,age_M,"age","age [years]","#occurrences","Distribution of age among both genders",300,path_fig)
-fct.save_doublehistogram(size_F,size_M,"size","size [meters]","#occurrences","Distribution of size among both genders",300,path_fig)
+# Plotting and saving histograms of age and size distribution among both genders
+fct.doublehistogram(data,list(data)[1],step1,resolution,path_fig) # age
+fct.doublehistogram(data,list(data)[2],step2,resolution,path_fig) # size
