@@ -13,7 +13,6 @@ import src.utils as fct
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import pytest
 
 # Definition of the dataset to test
 path_data   = './data/'                         # where to find the dataset
@@ -53,6 +52,6 @@ class TestClass:
     def test_doublehistogram(self):
         """ test of the doublehistogram function """
         data_to_test = fct.read_data(file)
-        spot1,spot2,width1,width2 = fct.doublehistogram(data_to_test,list(data_to_test)[1],1.,300,'./figures/')
+        spot1,spot2,width1,width2 = fct.doublehistogram(data_to_test,list(data_to_test)[1],1.,300,'./figures/tests/')
         assert round(width1,2) == round(width2,2)
         assert round(spot1[0]+width1,2) == round(spot2[0]-width1,2)
