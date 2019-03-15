@@ -42,18 +42,19 @@ def plot_histogram(list,bin_1,bin_n,bins,side,label):
     elif side == 'right':
         column_spot = 0.5*(bin_edges_list[1:]+bin_edges_list[:-1])+column_width
     plt.bar(column_spot,counts_list,label=label,alpha=0.5, width=column_width)
-
+    return column_spot,column_width
 
 def doublehistogram(df,var,step,res,path):
     """ description """
     df_F = sort_data(df,'F')
     df_M = sort_data(df,'M')
     bin_1,bin_n,bins = choose_bins(df,var,step)
-    plot_histogram(df_F[var].values,bin_1,bin_n,bins,'left','women')
-    plot_histogram(df_M[var].values,bin_1,bin_n,bins,'right','men')
+    spot1,width1 = plot_histogram(df_F[var].values,bin_1,bin_n,bins,'left','women')
+    spot2,width2 = plot_histogram(df_M[var].values,bin_1,bin_n,bins,'right','men')
     plt.legend(loc=0)
     plt.xlabel(var)
     plt.ylabel('#occurrences')
     plt.title('Distribution of '+var+' among both genders')
     plt.savefig(path+var+'_distribution.png',dpi=res)
     plt.close()
+    return spot1,spot2,width1,width2
