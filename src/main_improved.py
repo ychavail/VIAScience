@@ -1,8 +1,8 @@
 ##################################################################
-# Description: Main code to plot statistics (in histogram) of age and height of a database of men and women. Men and women are separated here to give two distinguishable distribution. Histograms are stored in ./figures.
-# Code name: ./src/main.py
+# Description: Main code to plot statistics (in histogram) of age and height of a database of men and women. Men and women are separated here to give two distinguishable distributions. Histograms are stored in ./figures.
+# Code name: ./src/main_improved.py
 # Date of creation: 2019/03/12
-# Date of last modification: 2019/03/14
+# Date of last modification: 2019/03/15
 # Contact information: Yann Chavaillaz, yann.chavaillaz@gmail.com
 ##################################################################
 
